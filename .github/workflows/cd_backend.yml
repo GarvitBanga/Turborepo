@@ -25,5 +25,5 @@ jobs:
           context: .
           file: ./d ocker/Dockerfile.backend
           push: true
-          tags: garvitbanga/backend:{{ github.sha }}
+          tags: garvitbanga/backend:${{ github.sha }}
       
