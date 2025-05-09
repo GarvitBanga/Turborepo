@@ -2,7 +2,7 @@
 # push docker image to dockerhub
 #ssh into server and start the image
 
-name: CD Backend
+name: CD Websocket
 on:
   push:
     branches: [main]
@@ -23,11 +23,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./Docker/Dockerfile.backend
+          file: ./Docker/Dockerfile.websocket
           push: true
-          tags: garvitbanga/backend:${{ github.sha }}
-      # - name: Deploy to the VM
-      #   run: |
-      #     echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
-      #     chmod 700 /home/runner/ssh_key
-      #     ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@64.227.169.180 -t "docker stop user_backend && docker run --name user_backend -d -p 8080:8080 garvitbanga/backend:${{ github.sha }}"
+          tags: garvitbanga/websocket:${{ github.sha }}
+      
